@@ -1,15 +1,15 @@
 "use client"
-import Image from 'next/image'
 import { useState } from 'react'
 import { Search } from 'lucide-react'
 import PosterCarousel from '../components/PosterCarousel'
+import { useRouter } from 'next/navigation'
 
 const HomeScreen = () => {
     const [query, setQuery] = useState("")
+    const router = useRouter()
     const getMovieInfo = async function (id: string) {
-        const res = await fetch(`/api/moviesInfo/${id}`);
-        const data = await res.json();
-        console.log(data)
+        if(!id) return;
+        router.push(`/movie/${id}`);
     }
     return (
         <main className="min-h-screen bg-black flex flex-col items-center justify-center text-white px-6 overflow-x-hidden">

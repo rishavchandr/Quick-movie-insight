@@ -36,3 +36,20 @@ body {
 .snap-start {
     scroll-snap-align: start;
 }
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  
+  .section-label {
+    @apply text-xs font-bold text-zinc-500 uppercase tracking-widest mb-3;
+  }
+}
